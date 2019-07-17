@@ -8,13 +8,13 @@ env:
   - BUILDTOOL=cmake
   - BUILDTOOL=autotools
 script:
-  - cmake --version
-  - test "$BUILDTOOL" = "cmake" && \
-    cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON && \
-    cmake --build _build && \
-    cmake --build _build --target test
-  - test "$BUILDTOOL" = "autotools" && \
-    ./bootstrap.sh && \
-    ./configure && \
-    make && \
+  - snap run cmake --version
+  - test "$BUILDTOOL" = "cmake" &&
+    snap run cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON &&
+    snap run cmake --build _build &&
+    snap run cmake --build _build --target test
+  - test "$BUILDTOOL" = "autotools" &&
+    ./bootstrap.sh &&
+    ./configure &&
+    make &&
     cd tests && make check
