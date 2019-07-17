@@ -1,10 +1,20 @@
 language: cpp
 dist: xenial
+addons:
+     snaps:
+       - name: cmake
+         confinement: classic
+env:
+  - BUILDTOOL=cmake
+  - BUILDTOOL=autotools
 script:
-  - cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON
-  - cmake --build _build
-  - cmake --build _build --target test
-  - ./bootstrap.sh
-  - ./configure
-  - make
-  - cd tests && make check
+  - cmake --version
+  - test "$BUILDTOOL" = "cmake" && \
+    cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON && \
+    cmake --build _build && \
+    cmake --build _build --target test
+  - test "$BUILDTOOL" = "autotools" && \
+    ./bootstrap.sh && \
+    ./configure && \
+    make && \
+    cd tests && make check
