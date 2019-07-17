@@ -1,10 +1,7 @@
 language: cpp
 dist: xenial
 script:
-  - cmake --version
-  - ls -ls
-  - pwd
-  - cmake -S. -B_build
+  - cmake -H. -B_build
   - cmake --build _build
   - cmake --build _build --target test
   - echo Automake

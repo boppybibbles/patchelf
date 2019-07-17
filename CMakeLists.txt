@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.12)
 
 project(patchelf
     DESCRIPTION "A small utility to modify the dynamic linker and RPATH of ELF executables."
