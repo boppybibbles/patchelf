@@ -1,9 +1,11 @@
 language: cpp
 dist: xenial
 script:
+  - echo CMake
   - cmake -S. -B_build
   - cmake --build _build
   - cmake --build _build --target test
+  - echo Automake
   - ./bootstrap.sh
   - ./configure
   - make
