@@ -1,9 +1,5 @@
 language: cpp
 dist: xenial
-addons:
-     snaps:
-       - name: cmake
-         confinement: classic
 jobs:
   include:
     - stage:
@@ -14,6 +10,10 @@ jobs:
         - make
         - cd tests && make check
     -
+      addons:
+         snaps:
+          - name: cmake
+            confinement: classic
       name: "CMake"
       script:
         - snap run cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON -DWITH_TESTS=ON
