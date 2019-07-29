@@ -21,7 +21,7 @@ jobs:
             confinement: classic
       name: CMake
       script:
-      - snap run cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON -DWITH_TESTS=ON -DCXX_COMPILER="g++-9"
+      - snap run cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON -DWITH_TESTS=ON -DCMAKE_CXX_COMPILER="g++-9"
       - snap run cmake --build _build
       - snap run cmake --build _build --target test
       - snap run cmake --build _build --target package
