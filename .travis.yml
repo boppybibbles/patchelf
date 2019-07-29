@@ -19,6 +19,11 @@ jobs:
          snaps:
          -  name: cmake
             confinement: classic
+         apt:
+            sources:
+            - ubuntu-toolchain-r-test
+            packages:
+            - g++-9
       name: CMake
       script:
       - snap run cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON -DWITH_TESTS=ON -DCMAKE_CXX_COMPILER="g++-9"
