@@ -44,4 +44,10 @@ install(TARGETS patchelf
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-include(${CMAKE_CURRENT_LIST_DIR}/cmake/tests.cmake)
+option(WITH_TESTS "Build tests")
+if (WITH_TESTS)
+    include(${CMAKE_CURRENT_LIST_DIR}/cmake/tests.cmake)
+endif()
+
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+include(CPack)
