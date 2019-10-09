@@ -1,4 +1,4 @@
-set(PAGESIZE "Auto" CACHE STRING "Specify default page size (default auto)")
+set(PAGESIZE "Auto" CACHE STRING "Specify default page size (Auto by default)")
 
 find_program(GETCONF_PROGRAM getconf)
 
